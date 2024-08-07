@@ -2,7 +2,7 @@ A Q & A based PDF - Retrieval Augmented Generation (RAG) application developed w
 
 ## (RAG) Retrieval Augmented Generation :-
 
-RAG is a technique that combines information retrieval and language generation to produce more informed and contextual responses. The app leverages Next.js for the front-end, LangChain for managing the retrieval and generation process, and OpenAI's language model for the generation component. It serves as a proof-of-concept for integrating RAG into web applications.
+RAG is a technique that combines information retrieval and language generation to produce more informed and contextual responses. The app leverages Next.js for the front-end, LlamaIndex.TS for managing the retrieval and generation process, and OpenAI's language model for the generation component. It serves as a proof-of-concept for integrating RAG into web applications.
 
 ## Demo
 
