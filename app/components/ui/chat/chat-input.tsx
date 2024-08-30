@@ -31,37 +31,11 @@ export default function ChatInput(
     props.handleSubmit(e);
   };
 
-  const onRemovePreviewImage = () => setImageUrl(null);
-
-  const handleUploadImageFile = async (file: File) => {
-    const base64 = await new Promise<string>((resolve, reject) => {
-      const reader = new FileReader();
-      reader.readAsDataURL(file);
-      reader.onload = () => resolve(reader.result as string);
-      reader.onerror = (error) => reject(error);
-    });
-    setImageUrl(base64);
-  };
-
-  const handleUploadFile = async (file: File) => {
-    try {
-      if (props.multiModal && file.type.startsWith("image/")) {
-        return await handleUploadImageFile(file);
-      }
-      props.onFileUpload?.(file);
-    } catch (error: any) {
-      props.onFileError?.(error.message);
-    }
-  };
-
   return (
     <form
       onSubmit={onSubmit}
       className="rounded-xl bg-white p-4 shadow-xl space-y-4"
     >
-      {imageUrl && (
-        <UploadImagePreview url={imageUrl} onRemove={onRemovePreviewImage} />
-      )}
       <div className="flex w-full items-start justify-between gap-4 ">
         <Input
           autoFocus
@@ -71,10 +45,6 @@ export default function ChatInput(
           value={props.input}
           onChange={props.handleInputChange}
         />
-        {/* <FileUploader
-          onFileUpload={handleUploadFile}
-          onFileError={props.onFileError}
-        /> */}
         <Button type="submit" disabled={props.isLoading}>
           Send message
         </Button>
